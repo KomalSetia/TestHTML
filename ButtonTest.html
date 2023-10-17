@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Terms Of Service</title>
+    <style>
+       body {
+        background-image: url(picture.png);
+        background-size: cover;
+        background-position: center;
+       } 
+       h1 {
+            text-align: center;
+            background-color: black;
+            color: white;
+            padding: 20px;
+            margin-top: 20%;
+            font-size: 50px; 
+        }
+
+       #buttons {
+            text-align: center;
+        }
+        button {
+            width: 300px;
+            height: 100px;
+            font-size: 50px; 
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+<h1>Welcome. Please Select the App</h1>
+<div id="buttons">
+    <button id="button1">Continue</button>
+    <button id="button2">Skip</button>
+</div>
+
+<script>
+        //Script to handle button click events
+        document.getElementById('button1').addEventListener('click', function() {
+            alert('Button 1 was clicked!');
+        });
+        document.getElementById('button2').addEventListener('click', function() {
+            window.close();
+        });
+    </script>
+</body>
+</html>
