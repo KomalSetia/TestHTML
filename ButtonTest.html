@@ -17,6 +17,7 @@
 
        #buttons {
             text-align: center;
+            padding: 20dp;
         }
         button {
             width: 200px;
@@ -28,29 +29,88 @@
             border: none;
             border-radius: 5px 5px;
         }
+        #result {
+            text-align: center;
+            font-size: 30px;
+            padding: 5px 0px 5px 0px;
+        }
+
     </style>
 </head>
 <body>
-<h1>Welcome. Please Select the App</h1>
+
+
 <p>Ott apps have become the gateway to a vast world of content, offering an unparalleled variety of movies, TV shows, documentaries, and more, accessible at our fingertips. From the convenience of our smartphones, smart TVs, and computers, we can dive into a treasure trove of entertainment,
     spanning multiple genres and languages. OTT platforms not only provide a rich library of on-demand content but also offer original productions, creating a new era of storytelling and giving talented creators a global stage to showcase their work. Whether you're a fan of gripping dramas,
     side-splitting comedies, thought-provoking documentaries, or thrilling action, there's something for everyone on these apps. The flexibility to choose what, when, and where to watch has redefined the way we enjoy entertainment, making it a personalized and immersive experience like never
     before.</p>
 <p>After signing in or completing the registration, you're ready to explore the vast library of content available on the app. Search for your favorite shows, movies, or series and start streaming instantly.</p>
 <p>Enjoy your entertainment journey with your chosen OTT app, and don't forget to explore the app's features, settings, and personalized recommendations for an even better streaming experience.</p>
+<div id="result"></div>
 <div id="buttons">
-    <button id="button1">Continue</button>
-    <button id="button2">Skip</button>
+    <input type="button" id="buttonContinue" value="Continue" onClick="handleContinue()" />
+    <input type="button" id="buttonSkip" value="Skip" onClick="handleSkip()" />
 </div>
 
-<script>
+<!-- Script - 1 To Pass the Click Action from the HTML to the Android Native-->
+<!--<button id="button1">Continue</button>
+<button id="button2">Skip</button>-->
+<!--<script>
         //Script to handle button click events
         document.getElementById('button1').addEventListener('click', function() {
-            alert('Button 1 was clicked!');
+            console.log("Clicked Continue Button On HTML");
         });
         document.getElementById('button2').addEventListener('click', function() {
-            window.close();
+            console.log("Clicked Skip Button On HTML");
         });
-    </script>
+    </script>-->
+
+<!-- Script - 1(Alternative) To Pass the Click Action from the HTML to the Android Native-->
+<!--<input type="button" id="buttonContinue" value="Continue" onClick="handleContinue()" />-->
+
+<script type="text/javascript">
+    function handleContinue() {
+        console.log("Handling Click for Continue Button");
+        Android.handleContinueButton();
+    }
+</script>
+
+
+<!--<input type="button" id="buttonSkip" value="Skip" onClick="handleSkip()" />-->
+
+<script type="text/javascript">
+    function handleSkip() {
+        console.log("Handling Click for Continue Button");
+        Android.handleSkipButton();
+    }
+</script>
+<!-- Script -1 End Region -->
+
+<!-- Script -2 To Pass the Action to Show Toast from the HTML to the Android Native-->
+<!--<input type="button" value="Say hello" onClick="showAndroidToast('Hello Android!')" />-->
+
+<script type="text/javascript">
+    function showAndroidToast(toast) {
+        console.log("Showing Toast On Click Of Button");
+        Android.showToast(toast);
+    }
+</script>
+
+<!-- Script -2 End Region -->
+
+<!-- Script -3 To Pass the params from Android Native & Read them in the HTML -->
+<script>
+        function init(param1, param2) {
+        // Process the parameters as needed
+        console.log("Obtained params are: " + param1 + " & " + param2);
+        var resultElement = document.getElementById("result");
+        resultElement.innerHTML = param1 + " - " + param2;
+    }
+</script>
+
+<!-- Script -2 End Region -->
+
+
+
 </body>
 </html>
